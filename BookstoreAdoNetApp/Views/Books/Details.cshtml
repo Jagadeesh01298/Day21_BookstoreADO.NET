@@ -1,0 +1,36 @@
+﻿@model BookstoreAdoNetApp.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h2>Book Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Book Id</th>
+        <td>@Model.BookId</td>
+    </tr>
+
+    <tr>
+        <th>Title</th>
+        <td>@Model.Title</td>
+    </tr>
+
+    <tr>
+        <th>Author</th>
+        <td>@Model.Author</td>
+    </tr>
+
+    <tr>
+        <th>Price</th>
+        <td>@Model.Price</td>
+    </tr>
+
+    <tr>
+        <th>Publication Year</th>
+        <td>@Model.PublicationYear</td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

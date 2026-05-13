@@ -1,0 +1,53 @@
+﻿@model List<BookstoreAdoNetApp.Models.Book>
+
+@{
+    ViewData["Title"] = "Books List";
+}
+
+<h2>Bookstore Management</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div style="color: green; font-weight: bold;">
+        @TempData["Success"]
+    </div>
+}
+
+<br />
+
+<a asp-action="Create" class="btn btn-primary">Add New Book</a>
+<a asp-action="DataSetDemo" class="btn btn-info">View Using DataSet/DataTable</a>
+
+<br />
+<br />
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Publication Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.BookId</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Price</td>
+                <td>@book.PublicationYear</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@book.BookId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.BookId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

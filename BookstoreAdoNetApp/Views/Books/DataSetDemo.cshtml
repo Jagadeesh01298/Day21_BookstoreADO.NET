@@ -1,0 +1,39 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "DataSet and DataTable Demo";
+}
+
+<h2>Books Using DataSet and DataTable</h2>
+
+<p>
+    This page displays books using SqlDataAdapter, DataSet, and DataTable.
+    This is disconnected architecture because the database connection is closed after data is filled.
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Publication Year</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (System.Data.DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["BookId"]</td>
+                <td>@row["Title"]</td>
+                <td>@row["Author"]</td>
+                <td>@row["Price"]</td>
+                <td>@row["PublicationYear"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>
